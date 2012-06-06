@@ -24,8 +24,8 @@
  * @author     Jens Doberenz <http://www.jedo-webstudio.com>
  * @package    jedoTestimonials
  * @license    LGPL
- * @version	   2.5.0
- */
+ * @version 1.0.0
+  */
 
 $GLOBALS['TL_LANG']['MSC']['tm_name'] = "Name";
 $GLOBALS['TL_LANG']['MSC']['tm_email'] = 'E-mail (not published)';

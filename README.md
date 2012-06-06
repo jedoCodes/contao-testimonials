@@ -18,8 +18,8 @@ Installation
 ### Attention
 Make a Backup of your Installation! 
 
-### Required extenion
-* none
+### Required
+* MooTools
 
 ### jedoTestimonials
 * Download or clone the jedoTestimonials to `system/modules`

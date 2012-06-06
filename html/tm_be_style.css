@@ -1,58 +1,11 @@
-/* 
- * Contao Open Source CMS
- * Copyright (C) 2005-2012 Leo Feyer
- *
- * Formerly known as TYPOlight Open Source CMS.
- *
- * This program is free software: you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation, either
- * version 3 of the License, or (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- * 
- * You should have received a copy of the GNU Lesser General Public
- * License along with this program. If not, please visit the Free
- * Software Foundation website at <http://www.gnu.org/licenses/>.
- *
- * PHP version 5
- * @copyright  jedo Webstudio 2005-2012
- * @author     Jens Doberenz <http://www.jedo-webstudio.com>
- * @package    jedoTestimonials
- * @license    LGPL
- * @version	   2.5.0
- */
- 
-.testimonial_wrap {
-		width:600px
-		}
-div.cte_type {	
-		margin:0 0 9px;
-		height: 16px;
-		}
-div.cte_type_title {	
-		font-weight: bold; color: #000;
-		}
-.tl_file_list {
-		vertical-align:top;
-		padding:6px 0 !important
-		}
-.mark_links a {
-		text-decoration:underline
-		}
-.cte_type.published {
-		background-image:url("images/approved.gif"); 
-		}
-.cte_type.unpublished {
-		background-image:url("images/pending.gif")
-		}
-
-
+.testimonial_wrap { 	width:600px; }
+div.cte_type { margin:0 0 9px; height: 16px; }
+div.cte_type_title { font-weight: bold; color: #000; }
+.tl_file_list { vertical-align:top; padding:6px 0 !important ; }
+.mark_links a { text-decoration: underline; }
+.cte_type.published { background-image:url("images/approved.gif"); }
+.cte_type.unpublished { background-image:url("images/pending.gif"); }
 span.vote { display: inline-block; width: 100px; height: 16px;  }
-
 .star0 {background-image:url("images/vote/small_0.gif")}
 .star1 {background-image:url("images/vote/small_1.gif")}
 .star2 {background-image:url("images/vote/small_2.gif")}

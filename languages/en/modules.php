@@ -24,8 +24,8 @@
  * @author     Jens Doberenz <http://www.jedo-webstudio.com>
  * @package    jedoTestimonials
  * @license    LGPL
- * @version	   2.5.0
- */
+ * @version 1.0.0
+  */
 
 
 /**
