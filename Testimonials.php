@@ -151,7 +151,10 @@ class Testimonials extends Frontend
 		$objTemplate->title = $GLOBALS['TL_LANG']['MSC']['tm_title'];
 		$objTemplate->vote = $GLOBALS['TL_LANG']['MSC']['tm_vote'];
 		$objTemplate->TestimonialsTotal = $limit ? $objTotal->count : $total;
-
+		if (!$objConfig->disableVote)
+		{
+			$objTemplate->showVote = true;
+		}
 		// Get the front end user object
 		$this->import('FrontendUser', 'User');
 
