@@ -32,10 +32,10 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_content']['jedoTM_order']          = array('Sortierreihenfolge', 'Bitte wählen Sie die Sortierreihenfolge.');
-$GLOBALS['TL_LANG']['tl_content']['jedoTM_perPage']        = array('Elemente pro Seite', 'Die Anzahl an Kommentaren pro Seite. Geben Sie 0 ein, um den automatischen Seitenumbruch zu deaktivieren.');
-$GLOBALS['TL_LANG']['tl_content']['jedoTM_moderate']       = array('Moderieren', 'Kommentare bestätigen, bevor sie auf der Webseite veröffentlicht werden.');
-$GLOBALS['TL_LANG']['tl_content']['jedoTM_bbcode']         = array('BBCode erlauben', 'Besuchern das Formatieren ihrer Kommentare mittels BBCode erlauben.');
-$GLOBALS['TL_LANG']['tl_content']['jedoTM_requireLogin']   = array('Login zum Kommentieren benötigt', 'Nur angemeldeten Benutzern das Erstellen von Kommentaren erlauben.');
+$GLOBALS['TL_LANG']['tl_content']['jedoTM_perPage']        = array('Elemente pro Seite', 'Die Anzahl an Kundenmeinungen pro Seite. Geben Sie 0 ein, um den automatischen Seitenumbruch zu deaktivieren.');
+$GLOBALS['TL_LANG']['tl_content']['jedoTM_moderate']       = array('Moderieren', 'Kundenmeinungen bestätigen, bevor sie auf der Webseite veröffentlicht werden.');
+$GLOBALS['TL_LANG']['tl_content']['jedoTM_bbcode']         = array('BBCode erlauben', 'Besuchern das Formatieren ihrer Meinungen mittels BBCode erlauben.');
+$GLOBALS['TL_LANG']['tl_content']['jedoTM_requireLogin']   = array('Login benötigt', 'Nur angemeldeten Benutzern das Erstellen von Meinungen erlauben.');
 $GLOBALS['TL_LANG']['tl_content']['jedoTM_disableCaptcha'] = array('Sicherheitsfrage deaktivieren', 'Hier können Sie die Sicherheitsfrage abschalten (nicht empfohlen).');
 $GLOBALS['TL_LANG']['tl_content']['jedoTM_template']       = array('Template', 'Hier können Sie das Template auswählen.');
 $GLOBALS['TL_LANG']['tl_content']['jedoTM_disableVote']       = array('Bewertung abschalten', 'Hier können Sie die Bewertung abschalten.');
