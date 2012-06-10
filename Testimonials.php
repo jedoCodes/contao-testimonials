@@ -57,7 +57,7 @@ class Testimonials extends Frontend
 		if ($objConfig->perPage > 0)
 		{
 			// Get the total number of testimonials
-			$objTotal = $this->Database->prepare("SELECT COUNT(*) AS count, AVG(vote) as totalvotes  FROM tl_jedoTestimonials WHERE" . (!BE_USER_LOGGED_IN ? " published=1" : ""))
+			$objTotal = $this->Database->prepare("SELECT COUNT(*) AS count FROM tl_jedoTestimonials WHERE" . (!BE_USER_LOGGED_IN ? " published=1" : ""))
 									   ->execute($this->id);
 
 			$total = $objTotal->count;
@@ -84,6 +84,14 @@ class Testimonials extends Frontend
 			// Initialize the pagination menu
 			$objPagination = new Pagination($objTotal->count, $objConfig->perPage);
 			$objTemplate->pagination = $objPagination->generate("\n  ");
+			$objTemplate->totalvotes = $this->get_votestars($objTotal->totalvotes, $objTotal->count, $bigstars = true);
+		}
+
+		if (!$objConfig->disableVote)
+		{
+			$objTotal = $this->Database->prepare("SELECT COUNT(*) AS count, AVG(vote) as totalvotes  FROM tl_jedoTestimonials WHERE" . (!BE_USER_LOGGED_IN ? " published=1" : ""))
+									   ->execute($this->id);
+
 			$objTemplate->totalvotes = $this->get_votestars($objTotal->totalvotes, $objTotal->count, $bigstars = true);
 		}
 
@@ -141,7 +149,6 @@ class Testimonials extends Frontend
 				++$count;
 			}
 		}
-
 		$objTemplate->Testimonials = $arrTestimonials;
 		$objTemplate->novoting = $objConfig->disableVote;
 		$objTemplate->name = $GLOBALS['TL_LANG']['MSC']['tm_name'];
