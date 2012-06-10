@@ -30,16 +30,16 @@
 <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
 <div class="lform">
 <div class="widget">
-  <?php echo $this->fields['name']->generateWithError(); ?> <?php echo $this->fields['name']->generateLabel(); ?> 
+  <?php echo $this->fields['name']->generateWithError(); ?> <?php //echo $this->fields['name']->generateLabel(); ?> 
 </div>
 <div class="widget">
-  <?php echo $this->fields['company']->generateWithError(); ?> <?php echo $this->fields['company']->generateLabel(); ?> 
+  <?php echo $this->fields['company']->generateWithError(); ?> <?php //echo $this->fields['company']->generateLabel(); ?> 
 </div>
 <div class="widget">
-  <?php echo $this->fields['email']->generateWithError(); ?> <?php echo $this->fields['email']->generateLabel(); ?> 
+  <?php echo $this->fields['email']->generateWithError(); ?> <?php //echo $this->fields['email']->generateLabel(); ?> 
 </div>
 <div class="widget">
-  <?php echo $this->fields['url']->generateWithError(); ?> <?php echo $this->fields['url']->generateLabel(); ?> 
+  <?php echo $this->fields['url']->generateWithError(); ?> <?php //echo $this->fields['url']->generateLabel(); ?> 
 </div>
 </div>
 <div class="rform">
@@ -56,7 +56,7 @@
 </div>
 <br class="clear" />
 <div class="widget">
-  <?php echo $this->fields['title']->generateWithError(); ?> <?php echo $this->fields['title']->generateLabel(); ?> 
+  <?php echo $this->fields['title']->generateWithError(); ?> <?php //echo $this->fields['title']->generateLabel(); ?> 
 </div>
 <div class="widget">
   <?php echo $this->fields['testimonial']->generateWithError(); ?> <label for="ctrl_<?php echo $this->fields['testimonial']->id; ?>" class="invisible"><?php echo $this->fields['testimonial']->label; ?></label>

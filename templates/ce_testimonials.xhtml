@@ -30,22 +30,26 @@
 <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
 <div class="lform">
 <div class="widget">
-  <?php echo $this->fields['name']->generateWithError(); ?> <?php echo $this->fields['name']->generateLabel(); ?> 
+	<?php echo $this->fields['name']->generateLabel(); ?><br />
+  	<?php echo $this->fields['name']->generateWithError(); ?>  
 </div>
 <div class="widget">
-  <?php echo $this->fields['company']->generateWithError(); ?> <?php echo $this->fields['company']->generateLabel(); ?> 
+	<?php echo $this->fields['company']->generateLabel(); ?><br />
+  	<?php echo $this->fields['company']->generateWithError(); ?>  
 </div>
 <div class="widget">
-  <?php echo $this->fields['email']->generateWithError(); ?> <?php echo $this->fields['email']->generateLabel(); ?> 
+	<?php echo $this->fields['email']->generateLabel(); ?><br />
+  	<?php echo $this->fields['email']->generateWithError(); ?>  
 </div>
 <div class="widget">
-  <?php echo $this->fields['url']->generateWithError(); ?> <?php echo $this->fields['url']->generateLabel(); ?> 
+	<?php echo $this->fields['url']->generateLabel(); ?><br />
+  	<?php echo $this->fields['url']->generateWithError(); ?>  
 </div>
 </div>
 <div class="rform">
 <?php if (isset($this->fields['vote'])): ?>
 <div class="widget">
-  <?php echo $this->fields['vote']->generateLabel(); ?> <?php echo $this->fields['vote']->generateWithError(); ?>
+  <?php echo $this->fields['vote']->generateLabel(); ?><br /><?php echo $this->fields['vote']->generateWithError(); ?>
 </div>
 <?php endif; ?>
 <?php if (isset($this->fields['captcha'])): ?>
@@ -59,7 +63,8 @@
 </div>
 <br class="clear" />
 <div class="widget">
-  <?php echo $this->fields['title']->generateWithError(); ?> <?php echo $this->fields['title']->generateLabel(); ?> 
+	<?php echo $this->fields['title']->generateLabel(); ?><br />
+  	<?php echo $this->fields['title']->generateWithError(); ?>  
 </div>
 <div class="widget">
   <?php echo $this->fields['testimonial']->generateWithError(); ?> <label for="ctrl_<?php echo $this->fields['testimonial']->id; ?>" class="invisible"><?php echo $this->fields['testimonial']->label; ?></label>

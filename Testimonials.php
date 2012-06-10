@@ -178,7 +178,7 @@ class Testimonials extends Frontend
 			'name' => array
 			(
 				'name' => 'name',
-				//'label' => $GLOBALS['TL_LANG']['MSC']['tm_name'],
+				'label' => $GLOBALS['TL_LANG']['MSC']['tm_name'],
 				'value' => trim($this->User->firstname . ' ' . $this->User->lastname),
 				'inputType' => 'text',
 				'eval' => array('mandatory'=>true, 'maxlength'=>64, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_name'])
@@ -186,7 +186,7 @@ class Testimonials extends Frontend
 			'email' => array
 			(
 				'name' => 'email',
-				//'label' => $GLOBALS['TL_LANG']['MSC']['tm_email'],
+				'label' => $GLOBALS['TL_LANG']['MSC']['tm_email'],
 				'value' => $this->User->email,
 				'inputType' => 'text',
 				'eval' => array('rgxp'=>'email', 'mandatory'=>true, 'maxlength'=>128, 'decodeEntities'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_email'])
@@ -194,21 +194,21 @@ class Testimonials extends Frontend
 			'url' => array
 			(
 				'name' => 'url',
-				//'label' => $GLOBALS['TL_LANG']['MSC']['tm_url'],
+				'label' => $GLOBALS['TL_LANG']['MSC']['tm_url'],
 				'inputType' => 'text',
 				'eval' => array('rgxp'=>'url', 'maxlength'=>128, 'decodeEntities'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_url'])
 			),
 			'company' => array
 			(
 				'name' => 'company',
-				//'label' => $GLOBALS['TL_LANG']['MSC']['tm_company'],
+				'label' => $GLOBALS['TL_LANG']['MSC']['tm_company'],
 				'inputType' => 'text',
 				'eval' => array('maxlength'=>128, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_company'])
 			),
 			'title' => array
 			(
 				'name' => 'title',
-				//'label' => $GLOBALS['TL_LANG']['MSC']['tm_title'],
+				'label' => $GLOBALS['TL_LANG']['MSC']['tm_title'],
 				'inputType' => 'text',
 				'eval' => array('maxlength'=>128, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_title'])
 			)
@@ -335,7 +335,7 @@ class Testimonials extends Frontend
 				'email' => $arrWidgets['email']->value,
 				'company' => $arrWidgets['company']->value,
 				'title' => $arrWidgets['title']->value,
-				'vote' => ($arrWidgets['vote']->value ?' ' : 0) ,
+				'vote' => $arrWidgets['vote']->value,
 				'url' => $strWebsite,
 				'testimonial' => $this->convertLineFeeds($strTesimonial),
 				'ip' => $this->anonymizeIp($this->Environment->ip),
