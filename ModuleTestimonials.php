@@ -30,7 +30,6 @@
 
 
 /**
- * Class ModuleComments
  *
  * @copyright  jedo Webstudio 2005-2012
  * @author     Jens Doberenz <http://www.jedo-webstudio.com>
@@ -74,8 +73,6 @@ class ModuleTestimonials extends Module
 	 */
 	protected function compile()
 	{
-		global $objPage;
-
 		$this->import('Testimonials');
 		$objConfig = new stdClass();
 

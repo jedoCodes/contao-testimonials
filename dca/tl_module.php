@@ -31,7 +31,7 @@
 /**
  * Add palettes to tl_module
  */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['jedoTestimonials'] = '{title_legend},name,headline,type;{testimonial_legend},jedoTM_order,perPage,jedoTM_moderate,jedoTM_bbcode,jedoTM_requireLogin,jedoTM_disableVote,jedoTM_disableCaptcha;{template_legend:hide},jedoTM_template;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['jedoTestimonials'] = '{title_legend},name,headline,type;{testimonial_legend},jedoTM_order,jedoTM_perPage,jedoTM_moderate,jedoTM_bbcode,jedoTM_requireLogin,jedoTM_disableVote,jedoTM_disableCaptcha;{template_legend:hide},jedoTM_template;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 
 /**
@@ -63,7 +63,13 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['jedoTM_bbcode'] = array
 	'inputType'               => 'checkbox',
 	'eval'                    => array('tl_class'=>'w50')
 );
-
+$GLOBALS['TL_DCA']['tl_module']['fields']['jedoTM_perPage'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['jedoTM_perPage'],
+	'exclude'                 => true,
+	'inputType'               => 'text',
+	'eval'                    => array('rgxp'=>'digit', 'tl_class'=>'w50')
+);
 $GLOBALS['TL_DCA']['tl_module']['fields']['jedoTM_requireLogin'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['jedoTM_requireLogin'],
