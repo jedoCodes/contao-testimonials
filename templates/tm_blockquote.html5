@@ -1,0 +1,10 @@
+<!-- indexer::stop -->
+<div class="tm_blockquote<?php echo $this->class; ?>" id="<?php echo $this->id; ?>">
+<blockquote class="example-obtuse">
+	<div class="rated"><?php echo $this->vote; ?><br class="clear" /></div>
+	<h3><?php echo $this->titel; ?></h3>
+	<p><?php echo $this->testimonial; ?></p>
+</blockquote>
+<p><?php if ($this->url): ?><a href="<?php echo $this->url; ?>" title="<?php echo $this->company; ?>" rel="nofollow" target="_blank"><?php endif; ?><?php echo $this->name; ?><?php if ($this->url): ?></a><?php endif; ?></p>
+</div>
+<!-- indexer::continue -->
