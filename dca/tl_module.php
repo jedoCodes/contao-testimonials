@@ -95,7 +95,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['jedoTM_disableVote'] = array
 $GLOBALS['TL_DCA']['tl_module']['fields']['jedoTM_template'] = array
 (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['jedoTM_template'],
-	'default'                 => 'jedoTM_default',
+	'default'                 => 'tm_default',
 	'exclude'                 => true,
 	'inputType'               => 'select',
 	'options_callback'        => array('tl_module_testimonials', 'getTestimonialsTemplates'),
