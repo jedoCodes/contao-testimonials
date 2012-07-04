@@ -89,14 +89,15 @@ try {
 <?php echo $this->pagination; ?>
 </div>
 
-<script type='text/javascript'>
-<!--//--><![CDATA[//><!--
-	window.addEvent('domready', function()
+<?php
+$GLOBALS['TL_MOOTOOLS']['jedoTestimonial'] = '<script type="text/javascript">
+window.addEvent("domready", function()
 	{
-		var showVote = '<?php echo $this->novoting; ?>';
+		$tm = document.id; 
+		var showVote = '.$this->novoting.';
 		if(showVote != "1"){
-    		var mySlideVotes = new Fx.Slide('tm_allvotes').hide();
-    		$('bt-tm_allvotes').addEvent('click', function(e)
+    		var mySlideVotes = new Fx.Slide("tm_allvotes").hide();
+    		$tm("bt-tm_allvotes").addEvent("click", function(e)
    		{
         			e = new Event(e);
 			mySlideVotes.toggle();
@@ -104,8 +105,8 @@ try {
         			e.stop();
     		});
 		}
-    		var mySlideForms = new Fx.Slide('tm_form').hide();
-    		$('bt-tm_form').addEvent('click', function(e2)
+    		var mySlideForms = new Fx.Slide("tm_form").hide();
+    		$tm("bt-tm_form").addEvent("click", function(e2)
    		{
         			e2 = new Event(e2);
         			mySlideForms.toggle();
@@ -115,5 +116,5 @@ try {
         			e2.stop();
     		});
 	});
-//--><!]]>
-</script>
+</script>';
+?>
