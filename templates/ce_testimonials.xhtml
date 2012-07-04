@@ -71,7 +71,7 @@
 </div>
 
 <div class="submit_container">
-  <input type="submit" class="submit" value="<?php echo $this->submit; ?>">
+  <input type="submit" class="submit button" value="<?php echo $this->submit; ?>">
 </div>
 </div>
 </form>
@@ -98,6 +98,8 @@ try {
 </div>
 
 <?php
+ if($this->novoting == ''): $this->novoting = 0; endif;
+
 $GLOBALS['TL_MOOTOOLS']['jedoTestimonial'] = '<script type="text/javascript">
 window.addEvent("domready", function()
 	{
