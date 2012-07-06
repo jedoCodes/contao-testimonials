@@ -238,12 +238,11 @@ class tl_jedoTestimonials extends Backend
 		}
 		
 		// Set root IDs
-		if (!is_array($this->User->jedoTestimonials) || count($this->User->culex_guestbooks) < 1) {
+		if (!is_array($this->User->jedoTestimonials) || count($this->User->jedoTestimonials) < 1) {
 			$root = array(0);
 		} else {
-			$root = $this->User->culex_guestbooks;
+			$root = $this->User->jedoTestimonials;
 		}		
-		$GLOBALS['TL_DCA']['tl_culex_guestbook_lists']['list']['sorting']['root'] = $root;
 		
 		// Check permissions to add archives
 		if (!$this->User->hasAccess('create', 'jedoTestimonials')) {
@@ -284,7 +283,7 @@ class tl_jedoTestimonials extends Backend
 	 */
 	public function editComment($row, $href, $label, $title, $icon, $attributes)
 	{
-		return ($this->User->isAdmin || $this->User->hasAccess('edit', 'jedoTestimonials')) ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.$this->generateImage($icon, $label).'</a> ' : $this->generateImage(preg_replace('/\.gif$/i', '_.gif', $icon)).' ';
+		return ($this->User->isAdmin || $this->User->hasAccess('edit', 'jedoTestimonials')) ? '<a href="'.$this->addToUrl($href.'&id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.$this->generateImage($icon, $label).'</a> ' : $this->generateImage(preg_replace('/\.gif$/i', '_.gif', $icon)).' ';
 	}
 
 
@@ -300,7 +299,7 @@ class tl_jedoTestimonials extends Backend
 	 */
 	public function deleteComment($row, $href, $label, $title, $icon, $attributes)
 	{
-		return ($this->User->isAdmin || $this->User->hasAccess('delete', 'jedoTestimonials')) ? '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.$this->generateImage($icon, $label).'</a> ' : $this->generateImage(preg_replace('/\.gif$/i', '_.gif', $icon)).' ';
+		return ($this->User->isAdmin || $this->User->hasAccess('delete', 'jedoTestimonials')) ? '<a href="'.$this->addToUrl($href.'&id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.$this->generateImage($icon, $label).'</a> ' : $this->generateImage(preg_replace('/\.gif$/i', '_.gif', $icon)).' ';
 	}
 
 
@@ -328,7 +327,7 @@ class tl_jedoTestimonials extends Backend
 			return '';
 		}
 
-		$href .= '&amp;tid='.$row['id'].'&amp;state='.($row['published'] ? '' : 1);
+		$href .= '&tid='.$row['id'].'&state='.($row['published'] ? '' : 1);
 
 		if (!$row['published'])
 		{

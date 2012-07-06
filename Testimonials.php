@@ -65,17 +65,7 @@ class Testimonials extends Frontend
 			// Get the current page
 			$page = $this->Input->get('page') ? $this->Input->get('page') : 1;
 
-			// Do not index or cache the page if the page number is outside the range
-			if ($page < 1 || $page > ceil($total/$objConfig->perPage))
-			{
-				global $objPage;
-				$objPage->noSearch = 1;
-				$objPage->cache = 0;
 
-				// Send a 404 header
-				header('HTTP/1.1 404 Not Found');
-				return;
-			}
 
 			// Set limit and offset
 			$limit = $objConfig->perPage;
@@ -86,7 +76,6 @@ class Testimonials extends Frontend
 			$objTemplate->pagination = $objPagination->generate("\n  ");
 			$objTemplate->totalvotes = $this->get_votestars($objTotal->totalvotes, $objTotal->count, $bigstars = true);
 		}
-
 		if (!$objConfig->disableVote)
 		{
 			$objTotal = $this->Database->prepare("SELECT COUNT(*) AS count, AVG(vote) as totalvotes  FROM tl_jedoTestimonials WHERE" . (!BE_USER_LOGGED_IN ? " published=1" : ""))
@@ -94,7 +83,6 @@ class Testimonials extends Frontend
 
 			$objTemplate->totalvotes = $this->get_votestars($objTotal->totalvotes, $objTotal->count, $bigstars = true);
 		}
-
 		// Get all published testimonials
 		$objTestimonialsStmt = $this->Database->prepare("SELECT * FROM tl_jedoTestimonials WHERE" . (!BE_USER_LOGGED_IN ? " published=1" : "") . " ORDER BY date" . (($objConfig->order == 'descending') ? " DESC" : ""));
 
@@ -131,7 +119,7 @@ class Testimonials extends Frontend
 					$objTestimonials->testimonial = $this->String->toHtml5($objTestimonials->testimonial );
 				}
 
-				$objPartial->testimonial = trim(str_replace(array('{{', '}}'), array('&#123;&#123;', '&#125;&#125;'), $objTestimonials->testimonial ));
+				$objPartial->testimonial = trim(str_replace(array('{{', '}}'), array('{{', '}}'), $objTestimonials->testimonial ));
 
 				$objPartial->datim = $this->parseDate($objPage->datimFormat, $objTestimonials->date);
 				$objPartial->date = $this->parseDate('l, d. M Y', $objTestimonials->date);
@@ -311,7 +299,7 @@ class Testimonials extends Frontend
 
 			// Do not parse any tags in the testimonial
 			$strTesimonial = htmlspecialchars(trim($arrWidgets['testimonial']->value));
-			$strTesimonial = str_replace(array('&amp;', '&lt;', '&gt;'), array('[&]', '[lt]', '[gt]'), $strTesimonial);
+			$strTesimonial = str_replace(array('&', '<', '>'), array('[&]', '[lt]', '[gt]'), $strTesimonial);
 
 			// Remove multiple line feeds
 			$strTesimonial = preg_replace('@\n\n+@', "\n\n", $strTesimonial);

@@ -18,11 +18,11 @@
 <?php if (!$this->requireLogin): ?>
 
 <!-- indexer::stop -->
-<div id="tm_form">
 <?php if ($this->confirm): ?>
-
-<p class="confirm"><?php echo $this->confirm; ?></p>
+	<p class="confirm"><?php echo $this->confirm; ?></p>
 <?php else: ?>
+
+<div id="tm_form">
 <?php echo '<h3>'.$GLOBALS['TL_LANG']['MSC']['add_testimonial'].'</h3>'; ?>
 <form action="<?php echo $this->action; ?>" id="<?php echo $this->formId; ?>" method="post">
 <div class="formbody">
@@ -80,15 +80,15 @@ try {
 } catch(e) {}
 </script>
 <?php endif; ?>
+</div>
 <?php endif; ?>
 
-</div>
 <!-- indexer::continue -->
 <?php endif; ?>
 <?php foreach ($this->Testimonials as $testimonial) echo $testimonial; ?>
 <?php echo $this->pagination; ?>
 </div>
-
+<!-- indexer::stop -->
 <?php
  if($this->novoting == ''): $this->novoting = 0; endif;
 

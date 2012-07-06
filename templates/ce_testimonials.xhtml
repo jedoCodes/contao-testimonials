@@ -18,11 +18,11 @@
 <?php if (!$this->requireLogin): ?>
 
 <!-- indexer::stop -->
-<div id="tm_form">
 <?php if ($this->confirm): ?>
-
-<p class="confirm"><?php echo $this->confirm; ?></p>
+	<p class="confirm"><?php echo $this->confirm; ?></p>
 <?php else: ?>
+
+<div id="tm_form">
 <?php echo '<h3>'.$GLOBALS['TL_LANG']['MSC']['add_testimonial'].'</h3>'; ?>
 <form action="<?php echo $this->action; ?>" id="<?php echo $this->formId; ?>" method="post">
 <div class="formbody">
@@ -30,41 +30,33 @@
 <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
 <div class="lform">
 <div class="widget">
-	<?php echo $this->fields['name']->generateLabel(); ?><br />
-  	<?php echo $this->fields['name']->generateWithError(); ?>  
+  <?php echo $this->fields['name']->generateWithError(); ?> <?php //echo $this->fields['name']->generateLabel(); ?> 
 </div>
 <div class="widget">
-	<?php echo $this->fields['company']->generateLabel(); ?><br />
-  	<?php echo $this->fields['company']->generateWithError(); ?>  
+  <?php echo $this->fields['company']->generateWithError(); ?> <?php //echo $this->fields['company']->generateLabel(); ?> 
 </div>
 <div class="widget">
-	<?php echo $this->fields['email']->generateLabel(); ?><br />
-  	<?php echo $this->fields['email']->generateWithError(); ?>  
+  <?php echo $this->fields['email']->generateWithError(); ?> <?php //echo $this->fields['email']->generateLabel(); ?> 
 </div>
 <div class="widget">
-	<?php echo $this->fields['url']->generateLabel(); ?><br />
-  	<?php echo $this->fields['url']->generateWithError(); ?>  
+  <?php echo $this->fields['url']->generateWithError(); ?> <?php //echo $this->fields['url']->generateLabel(); ?> 
 </div>
 </div>
 <div class="rform">
 <?php if (isset($this->fields['vote'])): ?>
 <div class="widget">
-  <?php echo $this->fields['vote']->generateLabel(); ?><br /><?php echo $this->fields['vote']->generateWithError(); ?>
+  <strong><?php echo $this->fields['vote']->generateLabel(); ?></strong><br /><?php echo $this->fields['vote']->generateWithError(); ?>
 </div>
 <?php endif; ?>
 <?php if (isset($this->fields['captcha'])): ?>
 <div class="widget">
-  <h4 class="captcha"><?php echo $GLOBALS['TL_LANG']['MSC']['tm_captcha']; ?></h4>
-</div>
-<div class="widget">
-  <?php echo $this->fields['captcha']->generateWithError(); ?> <label for="ctrl_captcha"><?php echo $this->fields['captcha']->generateQuestion(); ?><span class="mandatory">*</span></label>
+  <strong><?php echo $GLOBALS['TL_LANG']['MSC']['tm_captcha']; ?></strong><br /><?php echo $this->fields['captcha']->generateWithError(); ?> <label for="ctrl_captcha"><?php echo $this->fields['captcha']->generateQuestion(); ?><span class="mandatory">*</span></label>
 </div>
 <?php endif; ?>
 </div>
 <br class="clear" />
 <div class="widget">
-	<?php echo $this->fields['title']->generateLabel(); ?><br />
-  	<?php echo $this->fields['title']->generateWithError(); ?>  
+  <?php echo $this->fields['title']->generateWithError(); ?> <?php //echo $this->fields['title']->generateLabel(); ?> 
 </div>
 <div class="widget">
   <?php echo $this->fields['testimonial']->generateWithError(); ?> <label for="ctrl_<?php echo $this->fields['testimonial']->id; ?>" class="invisible"><?php echo $this->fields['testimonial']->label; ?></label>
@@ -88,15 +80,15 @@ try {
 } catch(e) {}
 </script>
 <?php endif; ?>
+</div>
 <?php endif; ?>
 
-</div>
 <!-- indexer::continue -->
 <?php endif; ?>
 <?php foreach ($this->Testimonials as $testimonial) echo $testimonial; ?>
 <?php echo $this->pagination; ?>
 </div>
-
+<!-- indexer::stop -->
 <?php
  if($this->novoting == ''): $this->novoting = 0; endif;
 
