@@ -299,7 +299,7 @@ class Testimonials extends Frontend
 
 			// Do not parse any tags in the testimonial
 			$strTesimonial = htmlspecialchars(trim($arrWidgets['testimonial']->value));
-			$strTesimonial = str_replace(array('&', '<', '>'), array('[&]', '[lt]', '[gt]'), $strTesimonial);
+			$strTesimonial = str_replace(array('&amp;', '&lt;', '&gt;'), array('[&]', '[lt]', '[gt]'), $strTesimonial);
 
 			// Remove multiple line feeds
 			$strTesimonial = preg_replace('@\n\n+@', "\n\n", $strTesimonial);
