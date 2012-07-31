@@ -119,7 +119,7 @@ class Testimonials extends Frontend
 					$objTestimonials->testimonial = $this->String->toHtml5($objTestimonials->testimonial );
 				}
 
-				$objPartial->testimonial = trim(str_replace(array('{{', '}}'), array('{{', '}}'), $objTestimonials->testimonial ));
+				$objPartial->testimonial = trim(str_replace(array('{{', '}}'), array('&#123;&#123;', '&#125;&#125;'), $objTestimonials->testimonial ));
 
 				$objPartial->datim = $this->parseDate($objPage->datimFormat, $objTestimonials->date);
 				$objPartial->date = $this->parseDate('l, d. M Y', $objTestimonials->date);
@@ -321,7 +321,7 @@ class Testimonials extends Frontend
 
 			// Do not parse any tags in the testimonial
 			$strTesimonial = htmlspecialchars(trim($arrWidgets['testimonial']->value));
-			$strTesimonial = str_replace(array('&', '<', '>'), array('&', '<', '>'), $strTesimonial);
+			$strTesimonial = str_replace(array('&amp;', '&lt;', '&gt;'), array('[&]', '[lt]', '[gt]'), $strTesimonial);
 
 			// Remove multiple line feeds
 			$strTesimonial = preg_replace('@\n\n+@', "\n\n", $strTesimonial);
