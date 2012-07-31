@@ -146,14 +146,14 @@ br.clear {
     letter-spacing:1.2px;
     color:#DDD !important
 }
-.buttons{
+.button{
     font-size:.9em;
     color:#F4F4F2;
     background:transparent url("images/bg-buttons.png") 100% -43px no-repeat scroll;
     margin:5px 10px 5px 0;
     padding:0 21px 0 0
 }
-.buttons span{
+.button span{
     display:block;
     line-height:10px;
     background:transparent url("images/bg-buttons.png") 0 0 no-repeat scroll;

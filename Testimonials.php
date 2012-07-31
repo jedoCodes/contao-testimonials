@@ -160,6 +160,24 @@ class Testimonials extends Frontend
 			return;
 		}
 
+		if (BE_USER_LOGGED_IN || FE_USER_LOGGED_IN)
+		{
+					$value_email = $this->User->email;
+					$value_name = trim($this->User->firstname . ' ' . $this->User->lastname);
+					$value_company = $GLOBALS['TL_LANG']['MSC']['tm_company'];
+					$value_url = $GLOBALS['TL_LANG']['MSC']['tm_url'];
+					$value_title = $GLOBALS['TL_LANG']['MSC']['tm_title'];
+					$value_testimonial = $GLOBALS['TL_LANG']['MSC']['tm_testimonial'];
+
+		} else {
+					$value_email = $GLOBALS['TL_LANG']['MSC']['tm_email'];
+					$value_name = $GLOBALS['TL_LANG']['MSC']['tm_name'];
+					$value_company = $GLOBALS['TL_LANG']['MSC']['tm_company'];
+					$value_url = $GLOBALS['TL_LANG']['MSC']['tm_url'];
+					$value_title = $GLOBALS['TL_LANG']['MSC']['tm_title'];
+					$value_testimonial = $GLOBALS['TL_LANG']['MSC']['tm_testimonial'];
+		}
+
 		// Form fields
 		$arrFields = array
 		(
@@ -167,38 +185,41 @@ class Testimonials extends Frontend
 			(
 				'name' => 'name',
 				'label' => $GLOBALS['TL_LANG']['MSC']['tm_name'],
-				'value' => trim($this->User->firstname . ' ' . $this->User->lastname),
+				'value' => $value_name,
 				'inputType' => 'text',
-				'eval' => array('mandatory'=>true, 'maxlength'=>64, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_name'])
+				'eval' => array('mandatory'=>true, 'maxlength'=>64, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_name'], 'onblur' => "if(this.value == '') { this.value='$value_name'}", 'onfocus' => "if (this.value == '$value_name') {this.value=''}")
 			),
 			'email' => array
 			(
 				'name' => 'email',
 				'label' => $GLOBALS['TL_LANG']['MSC']['tm_email'],
-				'value' => $this->User->email,
+				'value' => $value_email,
 				'inputType' => 'text',
-				'eval' => array('rgxp'=>'email', 'mandatory'=>true, 'maxlength'=>128, 'decodeEntities'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_email'])
+				'eval' => array('rgxp'=>'email', 'mandatory'=>true, 'maxlength'=>128, 'decodeEntities'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_email'], 'onblur' => "if(this.value == '') { this.value='$value_email'}", 'onfocus' => "if (this.value == '$value_email') {this.value=''}")
 			),
 			'url' => array
 			(
 				'name' => 'url',
 				'label' => $GLOBALS['TL_LANG']['MSC']['tm_url'],
+				'value' => $value_url,
 				'inputType' => 'text',
-				'eval' => array('rgxp'=>'url', 'maxlength'=>128, 'decodeEntities'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_url'])
+				'eval' => array('rgxp'=>'url', 'maxlength'=>128, 'decodeEntities'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_url'], 'onblur' => "if(this.value == '') { this.value='$value_url'}", 'onfocus' => "if (this.value == '$value_url') {this.value=''}")
 			),
 			'company' => array
 			(
 				'name' => 'company',
 				'label' => $GLOBALS['TL_LANG']['MSC']['tm_company'],
+				'value' => $value_company,
 				'inputType' => 'text',
-				'eval' => array('maxlength'=>128, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_company'])
+				'eval' => array('maxlength'=>128, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_company'], 'onblur' => "if(this.value == '') { this.value='$value_company'}", 'onfocus' => "if (this.value == '$value_company') {this.value=''}")
 			),
 			'title' => array
 			(
 				'name' => 'title',
 				'label' => $GLOBALS['TL_LANG']['MSC']['tm_title'],
 				'inputType' => 'text',
-				'eval' => array('maxlength'=>128, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_title'])
+				'value' => $value_title,
+				'eval' => array('maxlength'=>128, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_title'], 'onblur' => "if(this.value == '') { this.value='$value_title'}", 'onfocus' => "if (this.value == '$value_title') {this.value=''}")
 			)
 		);
 
@@ -232,7 +253,8 @@ class Testimonials extends Frontend
 			'name' => 'testimonial',
 			'label' => $GLOBALS['TL_LANG']['MSC']['tm_testimonial'],
 			'inputType' => 'textarea',
-			'eval' => array('mandatory'=>true, 'rows'=>15, 'cols'=>40, 'preserveTags'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_testimonial'])
+			'value' => $value_testimonial,
+			'eval' => array('mandatory'=>true, 'rows'=>15, 'cols'=>40, 'preserveTags'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_testimonial'], 'onblur' => "if(this.value == '') { this.value='$value_testimonial'}", 'onfocus' => "if (this.value == '$value_testimonial') {this.value=''}")
 		);
 
 		$doNotSubmit = false;
@@ -299,7 +321,7 @@ class Testimonials extends Frontend
 
 			// Do not parse any tags in the testimonial
 			$strTesimonial = htmlspecialchars(trim($arrWidgets['testimonial']->value));
-			$strTesimonial = str_replace(array('&amp;', '&lt;', '&gt;'), array('[&]', '[lt]', '[gt]'), $strTesimonial);
+			$strTesimonial = str_replace(array('&', '<', '>'), array('&', '<', '>'), $strTesimonial);
 
 			// Remove multiple line feeds
 			$strTesimonial = preg_replace('@\n\n+@', "\n\n", $strTesimonial);
@@ -343,7 +365,7 @@ class Testimonials extends Frontend
 			// Convert the testimonial to plain text
 			$strTesimonial = strip_tags($strTesimonial);
 			$strTesimonial = $this->String->decodeEntities($strTesimonial);
-			$strTesimonial = str_replace(array('[&]', '[lt]', '[gt]'), array('&', '<', '>'), $strTesimonial);
+			$strTesimonial = str_replace(array('&', '<', '>'), array('&', '<', '>'), $strTesimonial);
 
 			// Add testimonial details
 			$objEmail->text = sprintf($GLOBALS['TL_LANG']['MSC']['tm_message'],

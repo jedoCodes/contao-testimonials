@@ -5,10 +5,10 @@
 <div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
 <?php if ($this->headline): ?><<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>><?php endif; ?>
 <?php if ($this->showVote): ?>
-<a id="bt-tm_allvotes" class="buttons right" href="{{env::request}}#"><span><?php echo $GLOBALS['TL_LANG']['MSC']['bt_AllStats']; ?></span></a>
+<a id="bt-tm_allvotes" class="button right" href="{{env::request}}#"><span><?php echo $GLOBALS['TL_LANG']['MSC']['bt_AllStats']; ?></span></a>
 <?php endif; ?>
 <?php if (!$this->requireLogin): ?>
-<a id="bt-tm_form" class="buttons left" href="{{env::request}}#"><span><?php echo $GLOBALS['TL_LANG']['MSC']['bt_AddEntrie']; ?></span></a>
+<a id="bt-tm_form" class="button left" href="{{env::request}}#"><span><?php echo $GLOBALS['TL_LANG']['MSC']['bt_AddEntrie']; ?></span></a>
 <?php endif;?>
 <?php if ($this->showVote): ?>
 <div id="tm_allvotes">
@@ -29,11 +29,11 @@
 <input type="hidden" name="FORM_SUBMIT" value="<?php echo $this->formId; ?>">
 <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
 <div class="lform">
-<div class="widget">
-  <?php echo $this->fields['name']->generateWithError(); ?> <?php //echo $this->fields['name']->generateLabel(); ?> 
+<div class="widget"><br />
+  <?php echo $this->fields['name']->generateWithError(); ?> <?php //echo $this->fields['name']->generateLabel(); ?>
 </div>
 <div class="widget">
-  <?php echo $this->fields['company']->generateWithError(); ?> <?php //echo $this->fields['company']->generateLabel(); ?> 
+  <?php echo $this->fields['company']->generateWithError(); ?>  <?php //echo $this->fields['company']->generateLabel(); ?>
 </div>
 <div class="widget">
   <?php echo $this->fields['email']->generateWithError(); ?> <?php //echo $this->fields['email']->generateLabel(); ?> 
