@@ -365,7 +365,7 @@ class Testimonials extends Frontend
 			// Convert the testimonial to plain text
 			$strTesimonial = strip_tags($strTesimonial);
 			$strTesimonial = $this->String->decodeEntities($strTesimonial);
-			$strTesimonial = str_replace(array('&', '<', '>'), array('&', '<', '>'), $strTesimonial);
+			$strTesimonial = str_replace(array('&amp;', '&lt;', '&gt;'), array('[&]', '[lt]', '[gt]'), $strTesimonial);
 
 			// Add testimonial details
 			$objEmail->text = sprintf($GLOBALS['TL_LANG']['MSC']['tm_message'],
