@@ -4,7 +4,7 @@
 <?php if ( !$this->novoting): ?>
 	<div class="rated"><?php echo $this->vote; ?><br class="clear" /></div>
 <?php endif; ?>
-	<h3><?php echo $this->titel; ?></h3>
+	<?php if ( $this->titel): echo '<h3>'.$this->titel.'</h3>'; endif; ?>
 	<p><?php echo $this->testimonial; ?></p>
 </blockquote>
 <p><?php if ($this->url): ?><a href="<?php echo $this->url; ?>" title="<?php echo $this->company; ?>" rel="nofollow" target="_blank"><?php endif; ?><?php echo $this->name; ?><?php if ($this->url): ?></a><?php endif; ?></p>
