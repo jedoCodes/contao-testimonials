@@ -1,0 +1,446 @@
+@charset "utf-8";
+
+#tm_form,
+#tm_allvotes {
+	border: 1px #ccc solid;
+	background: #fff;
+	background:-moz-linear-gradient(top,#fff,#efefef);
+	background:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0,#fff),color-stop(1,#efefef));
+	background:-o-linear-gradient(top,#fff,#efefef);
+	background:linear-gradient(top,#fff,#efefef);
+	-pie-background:linear-gradient(top,#fff,#efefef);
+	behavior:url('../../../../../plugins/css3pie/PIE.htc')
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	padding: 10px;
+}
+#tm_allvotes {text-align: center;}
+#tm_allvotes .allstats {
+	color: #000000;
+	font-size: 1.2em;
+}
+#tm_form input,
+#tm_form select {
+	padding: 5px 10px;
+	border: 1px #ccc solid;
+	background: #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: 200px;
+	vertical-align: middle;
+}
+
+#tm_form input.mandatory,
+#tm_form textarea.mandatory {
+	background: #fef6f6;
+}
+#tm_form .lform {
+	width: 48%;
+	display: block;
+	float:left;
+}
+#tm_form .rform {
+	width: 48%;
+	display: block;
+	float:left;
+}
+#tm_form input.captcha {
+	width: 20px;
+}
+#tm_form h4.captcha {
+	margin-bottom: 5px;
+}
+#tm_form option {
+	border-bottom: 1px #ccc solid;
+	padding: 5px;
+	line-height: 1.2em;
+}
+#tm_form textarea {
+	height: 200px;
+	width: 98%;
+	max-height: 200px;
+	max-width: 98%;	
+}
+
+
+.tm_default,
+.tm_blockquote {
+	clear: both;
+	margin: 10px 0;
+}
+br.clear {
+	clear: both;
+	height: 1px;
+}
+
+.author {
+	width: 112px;
+	margin-right: 10px;
+	float: left;
+	display: block;
+}
+
+.author img { 
+	padding: 5px; 
+	background: #ffffff;
+	border: 1px solid #ccc; 
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+} 
+.author h3 { 
+	margin-top: 0;
+	display: block;
+	text-align: center;
+	font-size: 16px;
+} 
+.rated {
+	border-top: 1px #ccc solid;
+	font-style: italic;
+}
+.rated  span {
+	float: left;
+	display: inline-block;
+	line-height: 16px;
+	height: 16px;
+	padding: 10px 10px 10px 0;
+}
+.smallstars{
+    width:99px;
+    height:16px;
+    float:left;
+    display:block;
+    padding-top:10px;
+    padding-bottom:10px;
+    background:url("images/vote/small_0.gif") left center no-repeat;
+    font-weight:bold
+}
+.bigstars{
+    width:160px;
+    height:32px;
+    display:block;
+    margin-right:auto;
+    margin-left:auto;
+    padding-top:10px;
+    padding-bottom:10px;
+    background:url("images/vote/big_0.png") left center no-repeat;
+    font-weight:bold
+}
+.votevol{
+    height:16px;
+    display:block;
+    background:url("images/vote/small_5.gif") left center no-repeat
+}
+.allvotes{
+    height:32px;
+    display:block;
+    background:url("images/vote/big_5.png") left center no-repeat
+}
+.button,.button:hover{
+    display:inline-block;
+    border:0;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:1.2px;
+    color:#DDD !important
+}
+.button{
+    font-size:.9em;
+    color:#F4F4F2;
+    background:transparent url("images/bg-buttons.png") 100% -43px no-repeat scroll;
+    margin:5px 10px 5px 0;
+    padding:0 21px 0 0
+}
+.button span{
+    display:block;
+    line-height:10px;
+    background:transparent url("images/bg-buttons.png") 0 0 no-repeat scroll;
+    padding:16px 0 17px 21px
+}
+
+
+
+.triangle-border h3 {
+	margin: 0 0 10px;
+	font-size: 18px;
+	text-shadow: 0 0;
+}
+
+.triangle-border {
+	display: block;
+	position:relative;
+	padding:15px;
+	border:1px solid #cccccc;
+	color:#333;
+	background:#fff;
+	/* css3 */
+	background:-moz-linear-gradient(top,#fff,#efefef);
+	background:-webkit-gradient(linear,50% 0%,50% 100%,color-stop(0,#fff),color-stop(1,#efefef));
+	background:-o-linear-gradient(top,#fff,#efefef);
+	background:linear-gradient(top,#fff,#efefef);
+	-pie-background:linear-gradient(top,#fff,#efefef);
+	behavior:url('../../../../../plugins/css3pie/PIE.htc')
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	text-align: left;
+}
+
+/* Variant : for left positioned triangle
+------------------------------------------ */
+
+.triangle-border.left {
+	margin-left:140px;
+}
+
+/* Variant : for right positioned triangle
+------------------------------------------ */
+
+.triangle-border.right {
+	margin-right:30px;
+}
+
+/* THE TRIANGLE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.triangle-border:before {
+	content:"";
+	position:absolute;
+	bottom:-20px; /* value = - border-top-width - border-bottom-width */
+	left:40px; /* controls horizontal position */
+    	border-width:20px 20px 0;
+	border-style:solid;
+    	border-color:#5a8f00 transparent;
+    	/* reduce the damage in FF3.0 */
+    	display:block; 
+    	width:0;
+}
+
+/* creates the smaller  triangle */
+.triangle-border:after {
+	content:"";
+	position:absolute;
+	bottom:-13px; /* value = - border-top-width - border-bottom-width */
+	left:47px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+	border-width:13px 13px 0;
+	border-style:solid;
+	border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+/* Variant : top
+------------------------------------------ */
+
+/* creates the larger triangle */
+.triangle-border.top:before {
+	top:-20px; /* value = - border-top-width - border-bottom-width */
+	bottom:auto;
+	left:auto;
+	right:40px; /* controls horizontal position */
+    border-width:0 20px 20px;
+}
+
+/* creates the smaller  triangle */
+.triangle-border.top:after {
+	top:-13px; /* value = - border-top-width - border-bottom-width */
+	bottom:auto;
+	left:auto;
+	right:47px; /* value = (:before right) + (:before border-right) - (:after border-right) */
+    border-width:0 13px 13px;
+}
+
+/* Variant : left
+------------------------------------------ */
+
+/* creates the larger triangle */
+.triangle-border.left:before {
+	top:20px; /* controls vertical position */
+	bottom:auto;
+	left:-25px; /* value = - border-left-width - border-right-width */
+	border-width:15px 25px 15px 0;
+	border-color:transparent #ccc;
+}
+
+/* creates the smaller  triangle */
+.triangle-border.left:after {
+	top:21px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+	bottom:auto;
+	left:-24px; /* value = - border-left-width - border-right-width */
+	border-width:14px 24px 14px 0;
+	border-color:transparent #fff;
+}
+
+/* Variant : right
+------------------------------------------ */
+
+/* creates the larger triangle */
+.triangle-border.right:before {
+	top:10px; /* controls vertical position */
+	bottom:auto;
+    	left:auto;
+	right:-30px; /* value = - border-left-width - border-right-width */
+	border-width:15px 0 15px 30px;
+	border-color:transparent #5a8f00;
+}
+
+/* creates the smaller  triangle */
+.triangle-border.right:after {
+	top:16px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+	bottom:auto;
+    	left:auto;
+	right:-21px; /* value = - border-left-width - border-right-width */
+	border-width:9px 0 9px 21px;
+	border-color:transparent #fff;
+}
+
+/* Blockquote */
+
+.example-obtuse {
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	margin:1em 0;
+}
+.example-obtuse .rated {
+	position:absolute;
+	right: 20px;
+	top: 5px;
+	border: none;
+}
+.rated  span {
+	display: none;
+}
+.example-obtuse h3 {
+	margin: 0 0 10px;
+	font-size: 18px;
+	text-shadow: 0 0;
+}
+.example-obtuse p {
+    	margin:0;
+	padding: 0;
+	background: none;
+	border: none;
+	color:#000;
+    	font-size:1em;
+}
+
+.example-obtuse {
+	position:relative;
+	padding:15px 30px;
+	margin:0;
+	color:#000;
+	background:#f3961c; /* default background for browsers without gradient support */
+	/* css3 */
+    	background:-webkit-gradient(linear, 0 0, 0 100%, from(#fdfdfd), to(#efefef));
+	background:-moz-linear-gradient(#fdfdfd, #efefef);
+	background:-o-linear-gradient(#fdfdfd, #efefef);
+	background:linear-gradient(#fdfdfd, #efefef);
+	border: 1px #efefef solid;
+	/* Using longhand to avoid inconsistencies between Safari 4 and Chrome 4 */
+	-webkit-border-top-left-radius:25px 50px;
+	-webkit-border-top-right-radius:25px 50px;
+	-webkit-border-bottom-right-radius:25px 50px;
+	-webkit-border-bottom-left-radius:25px 50px;
+	-moz-border-radius:25px / 50px;
+	border-radius:25px / 50px;
+}
+
+/* display of quote author (alternatively use a class on the element following the blockquote) */
+.example-obtuse + p {margin:10px 150px 2em 0; text-align:right; font-style:italic;	color:#000;}
+
+/* creates the larger triangle */
+.example-obtuse:before {
+	content:"";
+	position:absolute;
+	bottom:-31px;
+	right:80px;
+	border-width:0 0 30px 50px;
+	border-style:solid;
+	border-color:transparent #efefef;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+/* creates the smaller triangle */
+.example-obtuse:after {
+	content:"";
+	position:absolute;
+	bottom:-31px;
+	right:110px; 
+	border-width:0 0 30px 20px;
+	border-style:solid;
+	border-color:transparent #fff;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+
+/*****************************************************************************************************************
+*		FORMS
+*****************************************************************************************************************/
+input[type=text],input.text,input.title,textarea,select{
+    padding:2px;
+    border:1px solid #bbb;
+    color:#4e4e4e
+}
+input[type=text]:focus,input.text:focus,input.title:focus,textarea:focus,select:focus{
+    border-color:#2D3940;
+    color:#3e3e3e
+}
+input[type=text],input.text,input.title,textarea,select{
+    margin:0.5em 0
+}
+
+/*****************************************************************************************************************
+*		PAGINATION
+*****************************************************************************************************************/
+
+.pagination{
+    position:relative;
+    padding:35px 30px 20px 0;
+    text-align:right;
+}
+.pagination ul{
+    list-style-type:none;
+    background: none;
+    border: none
+}
+.pagination li{
+    display:inline-block
+}
+.pagination a,.pagination a:link,.pagination a:visited{
+    margin:2px;
+    text-decoration:none;
+    padding: 5px 7px !important;
+    font-weight: normal !important;
+    font-size: 20px !important;
+    color: #5f5e5e !important;
+    border: 1px #ccc solid !important;
+    padding:5px 15px 5px 13px !important
+}
+.pagination span.current{
+    font-size: 20px !important;
+    color: #5f5e5e !important;
+    color: #9f260d !important
+}
+.pagination span.current,.pagination span.extend,.pagination a:active,.pagination a:hover{
+    margin:2px;
+    padding:5px 15px 5px 13px !important;
+    border: 1px #ccc solid !important;
+}
+.pagination p{
+    color:#413f36;
+    padding: 5px 7px 5px !important;
+    margin: 2px !important;
+    border: none !important
+}
+/*****************************************************************************************************************
+*		MISC
+*****************************************************************************************************************/
+.clr {clear: both; }

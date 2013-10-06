@@ -1,0 +1,48 @@
+<?php
+	$GLOBALS['TL_CSS']['testimonials'] = 'system/modules/jedo-testimonials/assets/css/'.$this->tm_design.'/testimonials.css';
+?>
+<div class="<?php echo $this->class; ?><?php echo ' '.$this->tm_design; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+<?php if ($this->headline): ?><<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>><?php endif; ?>
+<div id="testmonials">
+<div id="tab-menu" class="tab-menu">
+<ul>
+    <li><a title="<?php echo $GLOBALS['TL_LANG']['MSC']['tm_entries']; ?>" href="list"><?php echo $GLOBALS['TL_LANG']['MSC']['tm_entries']; ?></a></li>
+<?php if ($this->tm_addVote): ?><li><a title="<?php echo $GLOBALS['TL_LANG']['MSC']['tm_stats']; ?>" href="stats"><?php echo $GLOBALS['TL_LANG']['MSC']['tm_stats']; ?></a></li><?php endif; ?>
+<?php if (!$this->requireLogin): ?><li><a title="<?php echo $GLOBALS['TL_LANG']['MSC']['tm_form']; ?>" href="form"><?php echo $GLOBALS['TL_LANG']['MSC']['tm_form']; ?></a></li><?php endif; ?>
+</ul>
+</div>
+<div id="tab-wrapper">
+	<div id="list" class="tab-container">
+    		<?php foreach ($this->testimonials as $testimonial) echo $testimonial; ?>
+		<?php echo $this->pagination; ?>
+	<br class="clr" />
+    	</div>
+<?php if ($this->tm_addVote): ?>
+	<div id="stats" class="tab-container">
+    		<?php include $this->getTemplate('testimonials_stats', 'xhtml'); ?>
+	<br class="clr" />
+    	</div>
+<?php endif; ?>
+<?php if (!$this->requireLogin): ?>
+	<div id="form" class="tab-container">
+    		<?php include $this->getTemplate('testimonials_form', 'xhtml'); ?>
+	<br class="clr" />
+    	</div>
+<?php endif; ?>
+	<br class="clr" />
+</div>
+</div>
+</div>
+<?php if ($this->tm_addVote): ?>
+<?php $GLOBALS['TL_MOOTOOLS']['tm_vote_scripts'] = '<script type="text/javascript" src="system/modules/jedo-testimonials/assets/js/testimonials_rating.js"></script>'; ?>
+<?php endif; ?>
+<?php $GLOBALS['TL_MOOTOOLS']['tm_tabs_scripts'] = '<script type="text/javascript" src="system/modules/jedo-testimonials/assets/js/testimonials_tabs.js"></script>'; ?>
+
+<?php $GLOBALS['TL_MOOTOOLS']['tm_tabs'] = '<script type="text/javascript">
+		window.addEvent("domready",function(){
+			new SimpleTabs($("tab-menu"), {
+				selector: "li a"
+			});
+		});	
+</script>';
+?>

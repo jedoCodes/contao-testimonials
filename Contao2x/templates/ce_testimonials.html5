@@ -1,0 +1,122 @@
+<?php
+	$GLOBALS['TL_CSS'][]  = 'system/modules/jedoTestimonials/html/tm_fe_style.css';
+?>
+
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+<?php if ($this->headline): ?><<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>><?php endif; ?>
+<?php if ($this->showVote): ?>
+<a id="bt-tm_allvotes" class="button right" href="{{env::request}}#"><span><?php echo $GLOBALS['TL_LANG']['MSC']['bt_AllStats']; ?></span></a>
+<?php endif; ?>
+<?php if (!$this->requireLogin): ?>
+<a id="bt-tm_form" class="button left" href="{{env::request}}#"><span><?php echo $GLOBALS['TL_LANG']['MSC']['bt_AddEntrie']; ?></span></a>
+<?php endif;?>
+<?php if ($this->showVote): ?>
+<div id="tm_allvotes">
+	<?php echo $this->totalvotes; ?>
+</div>
+<?php endif;?>
+<?php if (!$this->requireLogin): ?>
+
+<!-- indexer::stop -->
+<?php if ($this->confirm): ?>
+	<p class="confirm"><?php echo $this->confirm; ?></p>
+<?php else: ?>
+
+<div id="tm_form">
+<?php echo '<h3>'.$GLOBALS['TL_LANG']['MSC']['add_testimonial'].'</h3>'; ?>
+<form action="<?php echo $this->action; ?>" id="<?php echo $this->formId; ?>" method="post">
+<div class="formbody">
+<input type="hidden" name="FORM_SUBMIT" value="<?php echo $this->formId; ?>">
+<input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}">
+<div class="lform">
+<div class="widget">
+  <?php echo $this->fields['name']->generateWithError(); ?> <?php //echo $this->fields['name']->generateLabel(); ?> 
+</div>
+<div class="widget">
+  <?php echo $this->fields['company']->generateWithError(); ?> <?php //echo $this->fields['company']->generateLabel(); ?> 
+</div>
+<div class="widget">
+  <?php echo $this->fields['email']->generateWithError(); ?> <?php //echo $this->fields['email']->generateLabel(); ?> 
+</div>
+<div class="widget">
+  <?php echo $this->fields['url']->generateWithError(); ?> <?php //echo $this->fields['url']->generateLabel(); ?> 
+</div>
+</div>
+<div class="rform">
+<?php if (isset($this->fields['vote'])): ?>
+<div class="widget">
+  <strong><?php echo $this->fields['vote']->generateLabel(); ?></strong><br /><?php echo $this->fields['vote']->generateWithError(); ?>
+</div>
+<?php endif; ?>
+<?php if (isset($this->fields['captcha'])): ?>
+<div class="widget">
+  <strong><?php echo $GLOBALS['TL_LANG']['MSC']['tm_captcha']; ?></strong><br /><?php echo $this->fields['captcha']->generateWithError(); ?> <label for="ctrl_captcha"><?php echo $this->fields['captcha']->generateQuestion(); ?><span class="mandatory">*</span></label>
+</div>
+<?php endif; ?>
+</div>
+<br class="clear" />
+<div class="widget">
+  <?php echo $this->fields['title']->generateWithError(); ?> <?php //echo $this->fields['title']->generateLabel(); ?> 
+</div>
+<div class="widget">
+  <?php echo $this->fields['testimonial']->generateWithError(); ?> <label for="ctrl_<?php echo $this->fields['testimonial']->id; ?>" class="invisible"><?php echo $this->fields['testimonial']->label; ?></label>
+</div>
+
+<div class="submit_container">
+  <input type="submit" class="submit button" value="<?php echo $this->submit; ?>">
+</div>
+</div>
+</form>
+<?php if ($this->hasError): ?>
+
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.addEvent('domready', function() { var mySlideForms = new Fx.Slide('tm_form').show(); });
+//--><!]]>
+</script>
+<script>
+try {
+  window.scrollTo(null, ($('<?php echo $this->formId; ?>').getElement('p.error').getPosition().y - 20));
+} catch(e) {}
+</script>
+<?php endif; ?>
+</div>
+<?php endif; ?>
+
+<!-- indexer::continue -->
+<?php endif; ?>
+<?php foreach ($this->Testimonials as $testimonial) echo $testimonial; ?>
+<?php echo $this->pagination; ?>
+</div>
+<!-- indexer::stop -->
+<?php
+ if($this->novoting == ''): $this->novoting = 0; endif;
+
+$GLOBALS['TL_MOOTOOLS']['jedoTestimonial'] = '<script type="text/javascript">
+window.addEvent("domready", function()
+	{
+		$tm = document.id; 
+		var showVote = '.$this->novoting.';
+		if(showVote != "1"){
+    		var mySlideVotes = new Fx.Slide("tm_allvotes").hide();
+    		$tm("bt-tm_allvotes").addEvent("click", function(e)
+   		{
+        			e = new Event(e);
+			mySlideVotes.toggle();
+        			mySlideForms.hide();
+        			e.stop();
+    		});
+		}
+    		var mySlideForms = new Fx.Slide("tm_form").hide();
+    		$tm("bt-tm_form").addEvent("click", function(e2)
+   		{
+        			e2 = new Event(e2);
+        			mySlideForms.toggle();
+			if(showVote != "1"){
+        				mySlideVotes.hide();
+			}
+        			e2.stop();
+    		});
+	});
+</script>';
+?>

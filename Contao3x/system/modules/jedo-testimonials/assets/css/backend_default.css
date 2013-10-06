@@ -1,0 +1,12 @@
+.testimonial_wrap { 	width:600px; }
+div.cte_type { margin:0 0 9px; height: 16px; }
+div.cte_type_title { font-weight: bold; color: #000; }
+.tl_file_list { vertical-align:top; padding:6px 0 !important ; }
+.mark_links a { text-decoration: underline; }
+.cte_type.published { background-image:url("../images/approved.gif"); }
+.cte_type.unpublished { background-image:url("../images/pending.gif"); }
+
+
+.beVotes 		{ background-image: url('../images/votes-be.png');} 
+.beContainer 		{ overflow:hidden; width: 60px; height: 12px;  repeat-x; margin: 10px auto;}
+.beStars		{ background-position:left 12px; display: block; height: 12px;}

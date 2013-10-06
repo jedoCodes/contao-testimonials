@@ -1,0 +1,38 @@
+<?php
+	$vote = Testimonials::getRating(votestotal);
+	$average = round(($vote / 5) * 100);
+?>
+<!-- indexer::stop -->
+<div class="statsdesc">
+	<a class="btstats" id="bt-total" href="{{env::request}}#"><div class="totalVotes totalContainer"><span class="totalVotes totalStars" style="width:<?php echo round(320/5*$vote);?>px;"></span></div></a>
+	<div class="allstats"><?php echo $average .'% '.$GLOBALS['TL_LANG']['MSC']['allstats'];?></div>
+	<div class="countstats">(<?php echo $this->TestimonialsTotal.' '.$GLOBALS['TL_LANG']['MSC']['allVotes']; ?> )</div>
+</div>
+
+<div id="totalstats-list">
+	<div class="one-half">
+	<?php if ($this->tm_enableVoteField1): ?><div class="voteContainer"><h4><?php echo $this->tm_VoteField1Name; ?></h4><div class="formVotes formContainer"><span class="formVotes formStars" style="width:<?php echo round(120/5*Testimonials::getRating(votefield1));?>px;"></span></div></div><?php endif; ?>
+	<?php if ($this->tm_enableVoteField3): ?><div class="voteContainer"><h4><?php echo $this->tm_VoteField3Name; ?></h4><div class="formVotes formContainer"><span class="formVotes formStars" style="width:<?php echo round(120/5*Testimonials::getRating(votefield3));?>px;"></span></div></div><?php endif; ?>
+	<?php if ($this->tm_enableVoteField5): ?><div class="voteContainer"><h4><?php echo $this->tm_VoteField5Name; ?></h4><div class="formVotes formContainer"><span class="formVotes formStars" style="width:<?php echo round(120/5*Testimonials::getRating(votefield5));?>px;"></span></div></div><?php endif; ?>
+	</div>
+	<div class="one-half last">
+	<?php if ($this->tm_enableVoteField2): ?><div class="voteContainer"><h4><?php echo $this->tm_VoteField2Name; ?></h4><div class="formVotes formContainer"><span class="formVotes formStars" style="width:<?php echo round(120/5*Testimonials::getRating(votefield2));?>px;"></span></div></div><?php endif; ?>
+	<?php if ($this->tm_enableVoteField4): ?><div class="voteContainer"><h4><?php echo $this->tm_VoteField4Name; ?></h4><div class="formVotes formContainer"><span class="formVotes formStars" style="width:<?php echo round(120/5*Testimonials::getRating(votefield4));?>px;"></span></div></div><?php endif; ?>
+	<?php if ($this->tm_enableVoteField6): ?><div class="voteContainer"><h4><?php echo $this->tm_VoteField6Name; ?></h4><div class="formVotes formContainer"><span class="formVotes formStars" style="width:<?php echo round(120/5*Testimonials::getRating(votefield6));?>px;"></span></div></div><?php endif; ?>
+	</div>
+<br class="clr" />
+</div>
+<!-- indexer::continue -->
+<script type="text/javascript">
+window.addEvent("domready", function()
+	{
+		$tm = document.id; 
+    		var mySlideForms = new Fx.Slide("totalstats-list", {duration: 1000, transition: Fx.Transitions.Bounce.easeOut}).hide();
+    		$tm("bt-total").addEvent("click", function(total)
+   		{
+        			total = new Event(total);
+        			mySlideForms.toggle();
+        			total.stop();
+    		});
+	});
+</script>

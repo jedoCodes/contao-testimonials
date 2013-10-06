@@ -1,0 +1,53 @@
+<!-- indexer::stop -->
+
+<!-- ENTRIE START -->
+<div id="<?php echo $this->id; ?>" class="testimonial_entry<?php echo $this->class; ?>">
+<?php if ($this->avatar): ?><div class="avatar"><?php echo $this->avatar; ?></div><?php endif; ?>
+<div class="author"><h3><?php if ($this->url): ?><a href="<?php echo $this->url; ?>" title="<?php echo $this->company; ?>" rel="nofollow" target="_blank"><?php endif; ?><?php echo $this->name; ?><?php if ($this->url): ?></a><?php endif; ?></h3></div>
+<?php if ($this->addVote): ?>
+<a class="btvote" id="bt-<?php echo $this->id; ?>" href="{{env::request}}#"><div class="formVotes formContainer"><span class="formVotes formStars" style="width:<?php echo round(160/5*$this->votestotal);?>px;"></span></div></a>
+<?php endif; ?>
+    <div class="inside block">
+<?php if ($this->addVote): ?>
+<div class="rated block">
+<div id="stats-<?php echo $this->id; ?>" class="votedetails">
+	<div class="one-half">
+	<?php if ($this->enableVoteField1): ?><div class="ratingContainer"><h4><?php echo $this->VoteField1Name; ?></h4><div class="smallVotes smallContainer"><span class="smallVotes smallStars" style="width:<?php echo round(120/5*$this->votefield1);?>px;"></span></div></div><?php endif; ?>
+	<?php if ($this->enableVoteField3): ?><div class="ratingContainer"><h4><?php echo $this->VoteField3Name; ?></h4><div class="smallVotes smallContainer"><span class="smallVotes smallStars" style="width:<?php echo round(120/5*$this->votefield3);?>px;"></span></div></div><?php endif; ?>
+	<?php if ($this->enableVoteField5): ?><div class="ratingContainer"><h4><?php echo $this->VoteField5Name; ?></h4><div class="smallVotes smallContainer"><span class="smallVotes smallStars" style="width:<?php echo round(120/5*$this->votefield5);?>px;"></span></div></div><?php endif; ?>
+	</div>
+	<div class="one-half last">
+	<?php if ($this->enableVoteField2): ?><div class="ratingContainer"><h4><?php echo $this->VoteField2Name; ?></h4><div class="smallVotes smallContainer"><span class="smallVotes smallStars" style="width:<?php echo round(120/5*$this->votefield2);?>px;"></span></div></div><?php endif; ?>
+	<?php if ($this->enableVoteField4): ?><div class="ratingContainer"><h4><?php echo $this->VoteField4Name; ?></h4><div class="smallVotes smallContainer"><span class="smallVotes smallStars" style="width:<?php echo round(120/5*$this->votefield4);?>px;"></span></div></div><?php endif; ?>
+	<?php if ($this->enableVoteField6): ?><div class="ratingContainer"><h4><?php echo $this->VoteField6Name; ?></h4><div class="smallVotes smallContainer"><span class="smallVotes smallStars" style="width:<?php echo round(120/5*$this->votefield6);?>px;"></span></div></div><?php endif; ?>
+	</div>
+<br class="clr" />
+</div>
+</div>
+<?php endif; ?>
+<div class="testimonial">
+	<h3><?php echo $this->titel; ?></h3>
+	<?php echo $this->testimonial; ?>
+</div>
+<br class="clr" />
+    </div>
+</div>
+<!-- ENTRIE END -->
+
+<!-- indexer::continue -->
+<?php if ($this->addVote): ?>
+<script type="text/javascript">
+window.addEvent("domready", function()
+	{
+		$tm = document.id; 
+    		var mySlideForms = new Fx.Slide("stats-<?php echo $this->id; ?>", {mode: 'horizontal',     duration: 1000,
+    transition: Fx.Transitions.Bounce.easeOut}).hide();
+    		$tm("bt-<?php echo $this->id; ?>").addEvent("click", function(<?php echo $this->id; ?>)
+   		{
+        			<?php echo $this->id; ?> = new Event(<?php echo $this->id; ?>);
+        			mySlideForms.toggle();
+        			<?php echo $this->id; ?>.stop();
+    		});
+	});
+</script>
+<?php endif; ?>
