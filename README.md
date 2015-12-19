@@ -25,7 +25,7 @@ Make a Backup of your Installation!
 * MooTools
 
 ### jedoTestimonials
-* Download or clone the jedoTestimonials to `system/modules`
+* Download or clone the jedoTestimonials to Contao Root Directory
 * update the database
 * create module or contentelement, jedoTestimonials on a page :)
 
