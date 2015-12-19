@@ -22,6 +22,11 @@
             "dev-master": "3.0.x-dev",
             "dev-develop": "4.0.x-dev"
         }
+       "contao": {
+            "sources": {
+                "": ""
+            }
+        }
     }
 
 }
