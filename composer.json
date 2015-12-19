@@ -1,5 +1,5 @@
 {
-    "name": "jedoStyle/contao-news_testimonials",
+    "name": "jedoStyle/contao-testimonials",
     "description": "testimonial extension for Contao Open Source CMS",
     "keywords": ["contao", "testimonials", "customers"],
     "type": "contao-module",
