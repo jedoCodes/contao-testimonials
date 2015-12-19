@@ -18,10 +18,10 @@
         "contao-community-alliance/composer-plugin": "2.*"
     },
     "extra": {
-        "contao": {
-            "sources": {
-                "": "system/modules/jedo-testimonials"
-            }
+        "branch-alias": {
+            "dev-master": "3.0.x-dev",
+            "dev-develop": "4.0.x-dev"
         }
     }
+
 }
