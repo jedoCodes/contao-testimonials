@@ -263,8 +263,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['tm_DefaultAvatar'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['tm_DefaultAvatar'],
 	'exclude'                 => true,
 	'inputType'               => 'fileTree',
-	'eval'                    => array('fieldType'=>'radio', 'filesOnly'=>true, 'tl_class'=>'clr'),
-	'sql'                     => "varchar(255) NOT NULL default ''"
+	'eval'                    => array('filesOnly'=>true, 'extensions'=>$GLOBALS['TL_CONFIG']['validImageTypes'], 'fieldType'=>'radio','tl_class'=>'clr'),
+			'sql'								=> "binary(16) NULL"
 );
 
 
