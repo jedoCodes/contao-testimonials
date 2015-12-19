@@ -6,6 +6,7 @@
 article, section, img {margin: 0; padding: 0; display: block;}
 
 .clr {clear: both; height: 1px;}
+#tab-wrapper {padding: 50px 0;}
 
 .ce_testimonials.light { background: none; }
 /*******************************
@@ -30,7 +31,7 @@ article, section, img {margin: 0; padding: 0; display: block;}
 /*******************************
  * Testimonials Entry Styling
  *******************************/
-.testimonial_entry { margin: 10px 20px 30px; position: relative; overflow: visible; }
+.testimonial_entry { margin: 10px 20px 30px; position: relative; overflow: visible;}
 .testimonial_entry.last { margin-right: 20px !important;}
 .testimonial_entry .avatar {display: block; position: absolute; top: -20px; left: -20px; z-index: 3; padding: 5px; background: #fff; border: 1px #E2E2E2 solid; -moz-border-radius: 10px; -webkit-border-radius:10px; border-radius:10px; -moz-box-shadow: 3px 3px 6px #808080; -webkit-box-shadow: 3px 3px 6px #808080; box-shadow: 3px 3px 6px #808080; } 
 .testimonial_entry .avatar img{ -moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px; }
@@ -48,13 +49,13 @@ article, section, img {margin: 0; padding: 0; display: block;}
 .testimonial_entry .author h3 {font-size: 16px; color: #333; text-shadow: 1px 1px 0px #000;}
 .testimonial_entry .author a { color: #333; text-decoration: none;}
 .testimonial_entry .inside { display: block; position: relative; border: 1px #E2E2E2 solid; -moz-border-radius: 10px; -webkit-border-radius:10px; border-radius:10px; background: rgb(226,226,226); background: -moz-linear-gradient(top,  rgba(226,226,226,1) 0%, rgba(255,255,255,1) 50%, rgba(242,245,246,1) 100%); 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(242,245,246,1))); background: -webkit-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); background: -o-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); background: -ms-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); background: linear-gradient(to bottom,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#f2f5f6',GradientType=0 ); min-height: 150px; overflow: hidden; }
-.testimonial_entry .testimonial { padding:10px;  background: fff; }
+.testimonial_entry .testimonial { padding:10px;  background: fff;  min-height: 120px;}
 .testimonial_entry .testimonial h3 { padding-left: 100px; color: #999; text-shadow: 1px 1px 0px #000;}
 
 /*******************************
  * Testimonials Stats Styling
  *******************************/
-#stats .statsdesc { margin: 50px; padding: 50px; text-align: center; border: 1px #E2E2E2 solid; -moz-border-radius: 10px; -webkit-border-radius:10px; border-radius:10px; background: rgb(226,226,226); background: -moz-linear-gradient(top,  rgba(226,226,226,1) 0%, rgba(255,255,255,1) 50%, rgba(242,245,246,1) 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(242,245,246,1))); background: -webkit-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); background: -o-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); background: -ms-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); background: linear-gradient(to bottom,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#f2f5f6',GradientType=0 ); }
+  .statsdesc { margin: 50px; padding: 50px; text-align: center; border: 1px #E2E2E2 solid; -moz-border-radius: 10px; -webkit-border-radius:10px; border-radius:10px; background: rgb(226,226,226); background: -moz-linear-gradient(top,  rgba(226,226,226,1) 0%, rgba(255,255,255,1) 50%, rgba(242,245,246,1) 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(242,245,246,1))); background: -webkit-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); background: -o-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); background: -ms-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); background: linear-gradient(to bottom,  rgba(226,226,226,1) 0%,rgba(255,255,255,1) 50%,rgba(242,245,246,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#f2f5f6',GradientType=0 ); }
 #totalstats-list .one-half { float:left; position:relative; display: block; width:48%; min-width: 350px; margin-right:4%; }
 #totalstats-list .one-half.last {margin-right: 0;}
 #totalstats-list .one-half .voteContainer {position:relative; clear: both; display: block;height: 28px; line-height: 28px; margin: 20px 0;}
@@ -73,9 +74,9 @@ article, section, img {margin: 0; padding: 0; display: block;}
 #tm_form .starrating .formContainer { width: 160px; display: inline-block; float: left; margin: 0 10px;}
 #tm_form .starrating label { width: 160px; display: block; float: left; height: 28px; line-height: 28px; color:#999; }
 #tm_form h3 { color:#999; margin-top: 15px;}
-#tm_form input[type="text"] {width:75%; margin-left: 4px;}
+#tm_form input[type="text"],#tm_form input[type="url"],#tm_form input[type="email"] {width:75%; margin-left: 4px;}
 #tm_form textarea{width:95%;height:140px}
-#tm_form input[type="text"],#tm_form textarea { border: 0; padding:10px; background: #bbb; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius:5px; color:#666;behavior:url('assets/css3pie/1.0.0/PIE.htc'); -webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.75); -moz-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.75); box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.75); }
+#tm_form input[type="text"],#tm_form input[type="url"],#tm_form input[type="email"],#tm_form textarea { border: 0; padding:10px; background: #bbb; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius:5px; color:#666;behavior:url('assets/css3pie/1.0.0/PIE.htc'); -webkit-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.75); -moz-box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.75); box-shadow: 1px 1px 5px rgba(50, 50, 50, 0.75); }
 #tm_form input.captcha{width:48px;margin-right:6px}
 #tm_form span.captcha_text{font-weight:normal;color:#444}*:first-child+html span.captcha_text{top:-3px;position:relative}
 #tm_form .submit_container{margin-top:1em;margin-bottom:1em}
@@ -87,7 +88,8 @@ article, section, img {margin: 0; padding: 0; display: block;}
  *******************************/
 .tab-wrapper { padding: 2em; margin: 0; border-top: 1px solid #666; clear: both; }
 .tab-menu { margin: 0 25px; padding: 0; list-style: none; overflow: hidden;}
-.tab-menu li { margin: 0 5px 0; padding: 0 15px; height: 40px; float: left;line-height: 40px; border: 1px solid #eee;border-bottom: 0; -moz-border-radius-topleft: 10px; -moz-border-radius-topright:10px; -webkit-border-top-left-radius:10px; -webkit-border-top-right-radius:10px; border-top-left-radius:10px;border-top-right-radius:10px; -moz-box-shadow: 2px 2px 5px 0px #666; -webkit-box-shadow: 2px 2px 5px 0px #666; box-shadow: 2px 2px 5px 0px #666; background:transparent url("button-blue.png") left top repeat-x; }
+.tab-menu ul {list-style:none;}
+.tab-menu li { list-style:none; margin: 0 5px 0; padding: 0 15px; height: 40px; float: left;line-height: 40px; border: 1px solid #eee;border-bottom: 0; -moz-border-radius-topleft: 10px; -moz-border-radius-topright:10px; -webkit-border-top-left-radius:10px; -webkit-border-top-right-radius:10px; border-top-left-radius:10px;border-top-right-radius:10px; -moz-box-shadow: 2px 2px 5px 0px #666; -webkit-box-shadow: 2px 2px 5px 0px #666; box-shadow: 2px 2px 5px 0px #666; background:transparent url("button-blue.png") left top repeat-x; }
 .tab-menu li:hover { background:transparent url("button-blue.png") left -40px repeat-x; }
 .tab-menu li a { font-size: 14px; font-weight: normal; text-transform: uppercase; text-decoration: none; color: #999; text-shadow:1px 1px 0 #000}
 .tab-menu li a:hover, .tab-menu li.tab-selected a:hover  { color: #999; text-shadow:1px 1px 0 #666;  text-decoration: none;}

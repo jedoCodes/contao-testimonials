@@ -6,43 +6,45 @@
 <div id="testmonials">
 <div id="tab-menu" class="tab-menu">
 <ul>
-    <li><a title="<?php echo $GLOBALS['TL_LANG']['MSC']['tm_entries']; ?>" href="list"><?php echo $GLOBALS['TL_LANG']['MSC']['tm_entries']; ?></a></li>
-<?php if ($this->tm_addVote): ?><li><a title="<?php echo $GLOBALS['TL_LANG']['MSC']['tm_stats']; ?>" href="stats"><?php echo $GLOBALS['TL_LANG']['MSC']['tm_stats']; ?></a></li><?php endif; ?>
-<?php if (!$this->requireLogin): ?><li><a title="<?php echo $GLOBALS['TL_LANG']['MSC']['tm_form']; ?>" href="form"><?php echo $GLOBALS['TL_LANG']['MSC']['tm_form']; ?></a></li><?php endif; ?>
+    <li class="tm-tabs"><a title="<?php echo $GLOBALS['TL_LANG']['MSC']['tm_entries']; ?>" href="list"><?php echo $GLOBALS['TL_LANG']['MSC']['tm_entries']; ?></a></li>
+<?php if ($this->tm_addVote): ?><li class="tm-tabs"><a title="<?php echo $GLOBALS['TL_LANG']['MSC']['tm_stats']; ?>" href="stats"><?php echo $GLOBALS['TL_LANG']['MSC']['tm_stats']; ?></a></li><?php endif; ?>
+<?php if (!$this->requireLogin): ?><li class="tm-tabs"><a title="<?php echo $GLOBALS['TL_LANG']['MSC']['tm_form']; ?>" href="form"><?php echo $GLOBALS['TL_LANG']['MSC']['tm_form']; ?></a></li><?php endif; ?>
 </ul>
 </div>
 <div id="tab-wrapper">
-	<div id="list" class="tab-container">
+	<div class="tab-container">
     		<?php foreach ($this->testimonials as $testimonial) echo $testimonial; ?>
 		<?php echo $this->pagination; ?>
-	<br class="clr" />
+	<div class="clearfix"></div>
     	</div>
 <?php if ($this->tm_addVote): ?>
-	<div id="stats" class="tab-container">
+	<div class="tab-container">
     		<?php include $this->getTemplate('testimonials_stats', 'xhtml'); ?>
-	<br class="clr" />
+	<div class="clearfix"></div>
     	</div>
 <?php endif; ?>
 <?php if (!$this->requireLogin): ?>
-	<div id="form" class="tab-container">
+	<div class="tab-container">
     		<?php include $this->getTemplate('testimonials_form', 'xhtml'); ?>
-	<br class="clr" />
+	<div class="clearfix"></div>
     	</div>
 <?php endif; ?>
-	<br class="clr" />
+	<div class="clearfix"></div>
 </div>
 </div>
 </div>
 <?php if ($this->tm_addVote): ?>
 <?php $GLOBALS['TL_MOOTOOLS']['tm_vote_scripts'] = '<script type="text/javascript" src="system/modules/jedo-testimonials/assets/js/testimonials_rating.js"></script>'; ?>
 <?php endif; ?>
-<?php $GLOBALS['TL_MOOTOOLS']['tm_tabs_scripts'] = '<script type="text/javascript" src="system/modules/jedo-testimonials/assets/js/testimonials_tabs.js"></script>'; ?>
+<?php $GLOBALS['TL_MOOTOOLS']['tm_tabs_tabs'] = '<script type="text/javascript" src="system/modules/jedo-testimonials/assets/js/tabs/rotater.js"></script>'; ?>
+<?php $GLOBALS['TL_MOOTOOLS']['tm_tabs_rotator'] = '<script type="text/javascript" src="system/modules/jedo-testimonials/assets/js/tabs/tabs.js"></script>'; ?>
 
 <?php $GLOBALS['TL_MOOTOOLS']['tm_tabs'] = '<script type="text/javascript">
-		window.addEvent("domready",function(){
-			new SimpleTabs($("tab-menu"), {
-				selector: "li a"
+			var tabs = new MGFX.Tabs(".tm-tabs",".tab-container",{
+				autoplay: false,
+				transitionDuration:500,
+				slideInterval:3000,
+				hover:true
 			});
-		});	
 </script>';
 ?>

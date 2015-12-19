@@ -17,7 +17,7 @@
  */
 ClassLoader::addNamespaces(array
 (
-	'JeDo\Testimonials',
+	'jedoStyle\Testimonials',
 ));
 
 
@@ -27,16 +27,16 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Models
-    'JeDo\Testimonials\TestimonialsModel'   => 'system/modules/jedo-testimonials/models/ModelTestimonials.php',
+    'jedoStyle\Testimonials\TestimonialsModel'   => 'system/modules/jedo-testimonials/models/ModelTestimonials.php',
 
 	// Modules
-	'JeDo\Testimonials\ModuleTestimonials'  => 'system/modules/jedo-testimonials/modules/ModuleTestimonials.php',
+	'jedoStyle\Testimonials\ModuleTestimonials'  => 'system/modules/jedo-testimonials/modules/ModuleTestimonials.php',
 
 	// Elements
-	'JeDo\Testimonials\ContentTestimonials' => 'system/modules/jedo-testimonials/elements/ContentTestimonials.php',
+	'jedoStyle\Testimonials\ContentTestimonials' => 'system/modules/jedo-testimonials/elements/ContentTestimonials.php',
 
 	// Classes
-	'JeDo\Testimonials\Testimonials'        => 'system/modules/jedo-testimonials/classes/Testimonials.php',
+	'jedoStyle\Testimonials\Testimonials'        => 'system/modules/jedo-testimonials/classes/Testimonials.php',
 ));
 
 

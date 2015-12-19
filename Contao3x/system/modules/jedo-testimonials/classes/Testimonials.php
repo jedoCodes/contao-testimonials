@@ -14,7 +14,7 @@
 /**
  * Run in a custom namespace, so the class can be replaced
  */
-namespace JeDo\Testimonials;
+namespace jedoStyle\Testimonials;
 
 
 class Testimonials extends \Frontend
@@ -468,7 +468,7 @@ class Testimonials extends \Frontend
 			);
 
 			// Store the testimonial
-			$objTestimonials = new \JedoTestimonialsModel();
+			$objTestimonials = new \TestimonialsModel();
 			$objTestimonials->setRow($arrSet)->save();
 
 			// Prepare the notification mail

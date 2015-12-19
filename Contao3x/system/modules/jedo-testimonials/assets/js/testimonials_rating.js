@@ -24,17 +24,17 @@ var TRate = new Class({
 			
 			'mousemove': function(event){
 				this.currStars.setStyles({'width': this.getCurrstarsWidthByCoord(event.client.x)});
-			}.bindWithEvent(this),
+			}.bind(this),
 			
 			'click': function(event){ 
 				var rating = this.getRatingByWidth(this.getCurrstarsWidthByCoord(event.client.x));
 				this.options.rating = rating;
 				this.inputField.set('value',rating);
-			}.bindWithEvent(this),
+			}.bind(this),
 			
 			'mouseleave': function(){
 				this.currStars.setStyle('width',this.getCurrstarsWidthByRating()); 
-			}.bindWithEvent(this),
+			}.bind(this),
 		});
     },
 
