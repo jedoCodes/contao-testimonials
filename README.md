@@ -16,6 +16,8 @@ Features
 
 Installation
 ------------
+You can install this extension via composer
+
 
 ### Attention
 Make a Backup of your Installation! 
