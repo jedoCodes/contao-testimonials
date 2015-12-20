@@ -165,24 +165,6 @@ class Testimonials extends \Frontend
 			return;
 		}
 
-		if (BE_USER_LOGGED_IN && FE_USER_LOGGED_IN)
-		{
-					$value_email = $this->User->email;
-					$value_name = trim($this->User->firstname . ' ' . $this->User->lastname);
-					$value_company = $GLOBALS['TL_LANG']['MSC']['tm_company'];
-					$value_url = $GLOBALS['TL_LANG']['MSC']['tm_url'];
-					$value_title = $GLOBALS['TL_LANG']['MSC']['tm_title'];
-					$value_testimonial = $GLOBALS['TL_LANG']['MSC']['tm_testimonial'];
-
-		} else {
-					$value_email = $GLOBALS['TL_LANG']['MSC']['tm_email'];
-					$value_name = $GLOBALS['TL_LANG']['MSC']['tm_name'];
-					$value_company = $GLOBALS['TL_LANG']['MSC']['tm_company'];
-					$value_url = $GLOBALS['TL_LANG']['MSC']['tm_url'];
-					$value_title = $GLOBALS['TL_LANG']['MSC']['tm_title'];
-					$value_testimonial = $GLOBALS['TL_LANG']['MSC']['tm_testimonial'];
-		}
-
 		// Form fields
 		$arrFields = array
 		(
@@ -190,41 +172,40 @@ class Testimonials extends \Frontend
 			(
 				'name'      => 'name',
 				'label'     => $GLOBALS['TL_LANG']['MSC']['tm_name'],
-				'value'     => $value_name,
+				'value'     => trim($this->User->firstname . ' ' . $this->User->lastname),
 				'inputType' => 'text',
-				'eval'      => array('mandatory'=>true, 'maxlength'=>64, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_name'], 'onblur' => "if(this.value == '') { this.value='$value_name'}", 'onfocus' => "if (this.value == '$value_name') {this.value=''}")
+				'eval'      => array('mandatory'=>true, 'maxlength'=>64, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_name'])
 			),
 			'email' => array
 			(
 				'name'      => 'email',
 				'label'     => $GLOBALS['TL_LANG']['MSC']['tm_email'],
-				'value'     => $value_email,
+				'value'     => $this->User->email,
 				'inputType' => 'text',
-				'eval'      => array('rgxp'=>'email', 'mandatory'=>true, 'maxlength'=>128, 'decodeEntities'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_email'], 'onblur' => "if(this.value == '') { this.value='$value_email'}", 'onfocus' => "if (this.value == '$value_email') {this.value=''}")
+				'eval'      => array('rgxp'=>'email', 'mandatory'=>true, 'maxlength'=>128, 'decodeEntities'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_email'])
 			),
 			'url' => array
 			(
 				'name'      => 'url',
 				'label'     => $GLOBALS['TL_LANG']['MSC']['tm_url'],
-				'value'     => $value_url,
 				'inputType' => 'text',
-				'eval'      => array('rgxp'=>'url', 'maxlength'=>128, 'decodeEntities'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_url'], 'onblur' => "if(this.value == '') { this.value='$value_url'}", 'onfocus' => "if (this.value == '$value_url') {this.value=''}")
+				'eval'      => array('rgxp'=>'url', 'maxlength'=>128, 'decodeEntities'=>true, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_url'])
 			),
 			'company' => array
 			(
 				'name'      => 'company',
 				'label'     => $GLOBALS['TL_LANG']['MSC']['tm_company'],
-				'value'     => $value_company,
+
 				'inputType' => 'text',
-				'eval'      => array('maxlength'=>128, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_company'], 'onblur' => "if(this.value == '') { this.value='$value_company'}", 'onfocus' => "if (this.value == '$value_company') {this.value=''}")
+				'eval'      => array('maxlength'=>128, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_company'])
 			),
 			'title' => array
 			(
 				'name'      => 'title',
 				'label'     => $GLOBALS['TL_LANG']['MSC']['tm_title'],
-				'value'     => $value_title,
+
 				'inputType' => 'text',
-				'eval'      => array('maxlength'=>128, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_title'], 'onblur' => "if(this.value == '') { this.value='$value_title'}", 'onfocus' => "if (this.value == '$value_title') {this.value=''}")
+				'eval'      => array('maxlength'=>128, 'placeholder'=> $GLOBALS['TL_LANG']['MSC']['tm_title'])
 			)
 		);
 
@@ -364,10 +345,10 @@ class Testimonials extends \Frontend
 		{
 
 			$strWebsite = $arrWidgets['url']->value;
-			if ($strWebsite == $value_url ) $strWebsite = '';
+			if ($strWebsite == $GLOBALS['TL_LANG']['MSC']['tm_url'] ) $strWebsite = '';
 
 			// Add http:// to the website
-			if (($strWebsite != '') && !preg_match('@^(https?://|ftp://|mailto:|#)@i', $strWebsite))
+			if (($strWebsite != '' ) && !preg_match('@^(https?://|ftp://|mailto:|#)@i', $strWebsite))
 			{
 				$strWebsite = 'http://' . $strWebsite;
 			}
@@ -475,25 +456,28 @@ class Testimonials extends \Frontend
 			$objEmail = new \Email();
 			$objEmail->from = $GLOBALS['TL_ADMIN_EMAIL'];
 			$objEmail->fromName = $GLOBALS['TL_ADMIN_NAME'];
-			$objEmail->subject = sprintf($GLOBALS['TL_LANG']['MSC']['com_subject'], \Environment::get('host'));
+			$objEmail->subject = sprintf($GLOBALS['TL_LANG']['MSC']['tm_subject'], \Idna::decode(\Environment::get('host')));
 
 			// Convert the testimonial to plain text
 			$strTestimonial = strip_tags($strTestimonial);
-			$strTestimonial = \String::decodeEntities($strTestimonial);
+			$strTestimonial = \StringUtil::decodeEntities($strTestimonial);
 			$strTestimonial = str_replace(array('[&]', '[lt]', '[gt]'), array('&', '<', '>'), $strTestimonial);
 
 			// Add the testimonial details
-			$objEmail->text = sprintf($GLOBALS['TL_LANG']['MSC']['com_message'],
+			$objEmail->text = sprintf($GLOBALS['TL_LANG']['MSC']['tm_message'],
 									  $arrSet['name'] . ' (' . $arrSet['email'] . ')',
 									  $strTestimonial,
-									  \Environment::get('base') . \Environment::get('request'),
-									  \Environment::get('base') . 'contao/main.php?do=testimonials&act=edit&id=' . $objTestimonials->id);
+									  \Idna::decode(\Environment::get('base')) . \Environment::get('request'),
+									  \Idna::decode(\Environment::get('base')) . 'contao/main.php?do=testimonials&act=edit&id=' . $objTestimonials->id);
 
+			
+			$objEmail->sendTo($GLOBALS['TL_ADMIN_EMAIL']);
 			// Pending for approval
 			if ($objConfig->moderate)
 			{
 				// FIXME: notify the subscribers when the testimonial is published
 				$_SESSION['TL_TESTIMONIAL_ADDED'] = true;
+				
 			}
 			$this->reload();
 		}
@@ -560,7 +544,7 @@ class Testimonials extends \Frontend
 		// Encode e-mail addresses
 		if (strpos($strTestimonial, 'mailto:') !== false)
 		{
-			$strTestimonial = \String::encodeEmail($strTestimonial);
+			$strTestimonial = \StringUtil::encodeEmail($strTestimonial);
 		}
 
 		return $strTestimonial;
