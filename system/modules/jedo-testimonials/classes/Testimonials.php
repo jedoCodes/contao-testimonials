@@ -460,7 +460,7 @@ class Testimonials extends \Frontend
 
 			// Convert the testimonial to plain text
 			$strTestimonial = strip_tags($strTestimonial);
-			$strTestimonial = \StringUtil::decodeEntities($strTestimonial);
+			$strTestimonial = \String::decodeEntities($strTestimonial);
 			$strTestimonial = str_replace(array('[&]', '[lt]', '[gt]'), array('&', '<', '>'), $strTestimonial);
 
 			// Add the testimonial details
