@@ -23,7 +23,7 @@ You can install this extension via composer
 Make a Backup of your Installation! 
 
 ### Required
-* Contao 3.x
+* Contao 3.1.x
 * MooTools
 
 ### jedoTestimonials
@@ -33,8 +33,12 @@ Make a Backup of your Installation!
 
 Changelog
 ---------
-### V3.00 (2012-09-XX)
-* ONLY SUPPORTED CONTAO V3.X
+### V3.00 (2015-12-20)
+* ONLY SUPPORTED CONTAO V3.5.x
+* Update image to uuid
+
+### V2.50 (2015-12-19)
+* ONLY SUPPORTED CONTAO V3.1.X
 * add import function for old extension release
 * add new voting system (Thanx tp PSI)
 * add bether vote system with six fields

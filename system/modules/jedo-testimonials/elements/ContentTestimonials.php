@@ -47,11 +47,11 @@ class ContentTestimonials extends \ContentElement
 
 		if($this->tm_DefaultAvatar)
 		{
-			if (!\Validator::isUuid($this->tm_DefaultAvatar))
+			if (!is_numeric($this->tm_DefaultAvatar))
 			{
 				return '<p class="error">'.$GLOBALS['TL_LANG']['ERR']['version2format'].'</p>';
 			}
-				$objFile = \FilesModel::findByUuid($this->tm_DefaultAvatar);
+				$objFile = \FilesModel::findByPk($this->tm_DefaultAvatar);
 
 			if ($objFile === null || !is_file(TL_ROOT . '/' . $objFile->path))
 			{
