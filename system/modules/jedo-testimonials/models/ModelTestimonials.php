@@ -47,8 +47,10 @@ class TestimonialsModel extends \Model
 		$t = static::$strTable;
 		$arrColumns = array();
 
-			$arrColumns[] = "$t.published=1";
-
+		if (!BE_USER_LOGGED_IN)
+		{
+			$arrColumns[] = "$t.published='1'";
+		}
 
 		$arrOptions = array
 		(
@@ -74,7 +76,10 @@ class TestimonialsModel extends \Model
 		$t = static::$strTable;
 		$arrColumns = array();
 
-			$arrColumns[] = "$t.published=1";
+		if (!BE_USER_LOGGED_IN)
+		{
+			$arrColumns[] = "$t.published='1'";
+		}
 
 
 		return static::countBy($arrColumns, $intParent);
