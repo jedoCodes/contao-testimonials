@@ -45,11 +45,11 @@ class TestimonialsModel extends \Model
 	public static function findPublishedTestimonials( $intParent, $blnDesc=false, $intLimit=0, $intOffset=0)
 	{
 		$t = static::$strTable;
-		$arrColumns = array();
+	
 
 		if (!BE_USER_LOGGED_IN)
 		{
-			$arrColumns[] = "$t.published='1'";
+			$arrColumns = array("$t.published='1'");
 		}
 
 		$arrOptions = array
@@ -74,11 +74,10 @@ class TestimonialsModel extends \Model
 	public static function countPublishedTestimonials($intParent)
 	{
 		$t = static::$strTable;
-		$arrColumns = array();
 
 		if (!BE_USER_LOGGED_IN)
 		{
-			$arrColumns[] = "$t.published='1'";
+			$arrColumns = array("$t.published='1'");
 		}
 
 
