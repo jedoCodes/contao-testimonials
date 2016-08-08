@@ -93,11 +93,11 @@ class Testimonials extends \Frontend
 				// Clean the RTE output
 				if ($objPage->outputFormat == 'xhtml')
 				{
-					$objTestimonials->testimonial = \String::toXhtml($objTestimonials->testimonial);
+					$objTestimonials->testimonial = \StringUtil::toXhtml($objTestimonials->testimonial);
 				}
 				else
 				{
-					$objTestimonials->testimonial = \String::toHtml5($objTestimonials->testimonial);
+					$objTestimonials->testimonial = \StringUtil::toHtml5($objTestimonials->testimonial);
 				}
 
 				$objPartial->testimonial = trim(str_replace(array('{{', '}}'), array('&#123;&#123;', '&#125;&#125;'), $objTestimonials->testimonial));
