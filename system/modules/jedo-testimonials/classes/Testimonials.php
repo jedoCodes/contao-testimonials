@@ -438,7 +438,7 @@ class Testimonials extends \Frontend
 				'testimonial' => $this->convertLineFeeds($strTestimonial),
 				'ip' => $this->anonymizeIp($this->Environment->ip),
 				'date' => $time,
-				'votestotal' => $strTVotes,
+				'votestotal' => (!$objConfig->addVote ? '': $strTVotes),
 				'votefield1' => (!$objConfig->enableVoteField1 ? '' : $arrWidgets['votefield1']->value),
 				'votefield2' => (!$objConfig->enableVoteField2 ? '' : $arrWidgets['votefield2']->value),
 				'votefield3' => (!$objConfig->enableVoteField3 ? '' : $arrWidgets['votefield3']->value),
